@@ -56,7 +56,7 @@ library(ggseg)
 library(ggseg3d)
 library(ggsegGordon)
 
-plot(gordon) +
+plot(gordon()) +
   theme(legend.position = "bottom", 
         legend.text = element_text(size = 9)) +
   guides(fill = guide_legend(ncol = 6))
@@ -65,14 +65,14 @@ plot(gordon) +
 
 ```{r "noneval", eval=FALSE}
 library(dplyr)
-ggseg3d(atlas = gordon_3d) %>% 
+ggseg3d(atlas = gordon()) %>% 
   add_glassbrain() %>% 
   pan_camera("right lateral")
 ```
 
 ```{r "orca", include=FALSE}
 library(dplyr)
-p <- ggseg3d(atlas = gordon_3d) %>%
+p <- ggseg3d(atlas = gordon()) %>%
   add_glassbrain(hemisphere = "left")%>%
   pan_camera("right lateral") %>%
   plotly::add_annotations( text="Screen capture",
