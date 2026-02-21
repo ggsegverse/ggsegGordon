@@ -10,7 +10,6 @@ Description: Gordon resting-state cortical parcellation atlas for the 'ggseg'
     geometry for use with 'ggseg'.
 License: MIT + file LICENSE
 Encoding: UTF-8
-LazyData: true
 Depends:
     R (>= 3.5),
     ggseg.formats

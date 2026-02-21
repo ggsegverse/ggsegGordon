@@ -4,10 +4,6 @@
 #' based on resting-state functional connectivity boundaries.
 #' Contains 2D polygon geometry for [ggseg::geom_brain()].
 #'
-#' @docType data
-#' @name gordon
-#' @usage data(gordon)
-#' @keywords datasets
 #' @family ggseg_atlases
 #'
 #' @references Gordon EM, Laumann TO, Adeyemo B, Huckins JF, Kelley WM,
@@ -16,8 +12,8 @@
 #'   26(1):288-303.
 #'   \doi{10.1093/cercor/bhu239}
 #'
-#' @format A [ggseg.formats::ggseg_atlas] object (cortical).
+#' @return A [ggseg.formats::ggseg_atlas] object (cortical).
+#' @export
 #' @examples
-#' data(gordon)
-#' gordon
-"gordon"
+#' gordon()
+gordon <- function() .gordon
