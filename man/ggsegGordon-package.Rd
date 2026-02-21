@@ -13,8 +13,8 @@ Gordon resting-state cortical parcellation atlas for the 'ggseg' ecosystem. Prov
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://github.com/ggseg/ggsegGordon}
-  \item Report bugs at \url{https://github.com/ggseg/ggsegGordon/issues}
+  \item \url{https://github.com/ggsegverse/ggsegGordon}
+  \item Report bugs at \url{https://github.com/ggsegverse/ggsegGordon/issues}
 }
 
 }

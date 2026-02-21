@@ -13,6 +13,7 @@
 #'   \doi{10.1093/cercor/bhu239}
 #'
 #' @return A [ggseg.formats::ggseg_atlas] object (cortical).
+#' @import ggseg.formats
 #' @export
 #' @examples
 #' gordon()
