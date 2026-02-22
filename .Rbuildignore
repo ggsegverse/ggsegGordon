@@ -5,3 +5,4 @@ data-raw
 pkgdown
 README*
 ^LICENSE\.md$
+^README\.qmd$
