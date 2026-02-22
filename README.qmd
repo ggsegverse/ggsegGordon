@@ -2,16 +2,17 @@
 format: gfm
 ---
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
+<!-- README.md is generated from README.qmd. Please edit that file -->
 
 ```{r}
+#| label: setup
 #| include: false
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
   fig.path = "man/figures/README-",
   out.width = "100%",
-  fig.width = 10, 
+  fig.width = 10,
   fig.retina = 3
 )
 ```
@@ -24,76 +25,53 @@ knitr::opts_chunk$set(
 [![CRAN status](https://www.r-pkg.org/badges/version/ggsegGordon)](https://CRAN.R-project.org/package=ggsegGordon)
 <!-- badges: end -->
 
-This package contains dataset for plotting the [gordon](add url here) atlas ggseg and ggseg3d. 
+This package contains dataset for plotting the Gordon atlas for ggseg.
 
-Gordon, E. M., Laumann, T. O., Adeyemo, B., Huckins, J. F., Kelley, W. M., & Petersen, S. E. (2014). Generation and evaluation of a cortical area parcellation from resting-state correlations. Cerebral cortex, 26(1), 288-303. Chicago
+Gordon, E. M., Laumann, T. O., Adeyemo, B., Huckins, J. F., Kelley, W. M., & Petersen, S. E. (2014). Generation and evaluation of a cortical area parcellation from resting-state correlations. Cerebral cortex, 26(1), 288-303.
 [PubMed](https://pubmed.ncbi.nlm.nih.gov/25316338/)
 
-To learn how to use these atlases, please look at the documentation for [ggseg](https://ggseg.github.io/ggseg/) and [ggseg3d](https://ggseg.github.io/ggseg3d)
+To learn how to use these atlases, please look at the documentation for [ggseg](https://ggseg.github.io/ggseg/)
 
 ## Installation
 
 We recommend installing the ggseg-atlases through the ggseg [r-universe](https://ggseg.r-universe.dev/ui#builds):
 
 ```{r}
+#| label: install-r-universe
 #| eval: false
-# Enable this universe
 options(repos = c(
-    ggseg = 'https://ggseg.r-universe.dev',
-    CRAN = 'https://cloud.r-project.org'))
+  ggseg = "https://ggseg.r-universe.dev",
+  CRAN = "https://cloud.r-project.org"
+))
 
-# Install some packages
-install.packages('ggsegGordon')
+install.packages("ggsegGordon")
 ```
 
-You can install the released version of ggsegGordon from [GitHub](https://github.com/) with:
+You can install from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("remotes")
 remotes::install_github("ggseg/ggsegGordon")
 ```
 
+## Example
+
 ```{r}
+#| label: 2d-plot
 #| fig-height: 18
-library(ggseg)
-library(ggseg3d)
 library(ggsegGordon)
+library(ggseg)
+library(ggplot2)
 
-plot(gordon()) +
-  theme(legend.position = "bottom", 
-        legend.text = element_text(size = 9)) +
-  guides(fill = guide_legend(ncol = 6))
-
-```
-
-```{r}
-#| label: noneval
-#| eval: false
-library(dplyr)
-ggseg3d(atlas = gordon()) |> 
-  add_glassbrain() |> 
-  pan_camera("right lateral")
-```
-
-```{r}
-#| label: orca
-#| include: false
-library(dplyr)
-p <- ggseg3d(atlas = gordon()) |>
-  add_glassbrain(hemisphere = "left")|>
-  pan_camera("right lateral") |>
-  plotly::add_annotations( text="Screen capture",
-                  legendtitle=TRUE, showarrow=FALSE,
-                  font = list(color = "#000000b4",
-                              family = 'sans serif',
-                              size = 50))
-snapshot_brain("man/figures/README-3d-plot.png")
-```
-
-```{r}
-#| label: incl
-#| echo: false
-knitr::include_graphics("man/figures/README-3d-plot.png")
+ggplot() +
+  geom_brain(
+    atlas = gordon(),
+    mapping = aes(fill = label),
+    position = position_brain(hemi ~ view),
+    show.legend = FALSE
+  ) +
+  scale_fill_manual(values = gordon()$palette, na.value = "grey") +
+  theme_void()
 ```
 
 Please note that the 'ggsegGordon' project is released with a
