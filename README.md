@@ -66,3 +66,10 @@ ggplot() +
 Please note that the ‘ggsegGordon’ project is released with a
 [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By contributing to
 this project, you agree to abide by its terms.
+
+## Data source
+
+Gordon333dil annotation files on fsaverage5.
+
+- **Reference**: Gordon et al. (2016) [doi:10.1093/cercor/bhu239](https://doi.org/10.1093/cercor/bhu239)
+- **Date obtained**: 2021-10-15
