@@ -17,4 +17,5 @@
 #' @export
 #' @examples
 #' gordon()
+#' plot(gordon())
 gordon <- function() .gordon
