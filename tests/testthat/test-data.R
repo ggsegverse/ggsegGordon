@@ -26,6 +26,7 @@ describe("gordon atlas", {
 
   it("renders with ggseg3d", {
     skip_if_not_installed("ggseg3d")
+    skip_if_not_installed("ggseg.meshes")
     p <- ggseg3d::ggseg3d(atlas = gordon())
     expect_s3_class(p, c("plotly", "htmlwidget"))
   })
