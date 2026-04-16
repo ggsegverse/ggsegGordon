@@ -16,6 +16,7 @@ Contains 2D polygon geometry for \code{\link[ggseg:ggbrain]{ggseg::geom_brain()}
 }
 \examples{
 gordon()
+plot(gordon())
 }
 \references{
 Gordon EM, Laumann TO, Adeyemo B, Huckins JF, Kelley WM,
@@ -24,4 +25,5 @@ Parcellation from Resting-State Correlations. \emph{Cerebral Cortex},
 26(1):288-303.
 \doi{10.1093/cercor/bhu239}
 }
+\concept{cortical_atlases}
 \concept{ggseg_atlases}

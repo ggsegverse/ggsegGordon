@@ -12,7 +12,7 @@ annot_name <- "gordon333dil"
 # You might need to convert the annotation file
 # convert atlas to fsaverage5
 lapply(c("lh", "rh"),
-       function(x){
+       function(x) {
          mri_surf2surf_rereg(subject = "fsaverage",
                              annot = annot_name,
                              hemi = x,
@@ -35,10 +35,12 @@ ggseg3d(atlas  = gordon_3d)
 gordon_n <- gordon_3d
 gordon_n <- unnest(gordon_n, ggseg_3d)
 gordon_n <- mutate(gordon_n,
-                    region = gsub("^L_|^R_", "", region),
-                    region = ifelse(grepl("Unknown|\\?", region, ignore.case = TRUE), 
-                                    NA, region),
-                    atlas = "gordon_3d"
+  region = gsub("^L_|^R_", "", region),
+  region = ifelse(
+    grepl("Unknown|\\?", region, ignore.case = TRUE),
+    NA, region
+  ),
+  atlas = "gordon_3d"
 )
 gordon_3d <- as_ggseg3d_atlas(gordon_n)
 ggseg3d(atlas  = gordon_3d)
@@ -53,22 +55,22 @@ devtools::load_all(".")
 # Make 2d polygon ----
 gordon <- make_ggseg3d_2_ggseg(gordon_3d,
                                steps = 6:7,
-                               tolerance = .5, 
+                               tolerance = .5,
                                output_dir = here::here("data-raw/"))
 
 plot(gordon, show.legend = FALSE)
 
-gordon %>%
+gordon |>
   ggseg(atlas = ., show.legend = FALSE,
         colour = "black",
-        mapping = aes(fill=region)) +
+        mapping = aes(fill = region)) +
   scale_fill_brain("gordon", package = "ggsegGordon", na.value = "black")
 
 
 usethis::use_data(gordon, gordon_3d,
                   internal = FALSE,
                   overwrite = TRUE,
-                  compress="xz")
+                  compress = "xz")
 
 
 # make hex ----
@@ -85,22 +87,23 @@ p <- ggseg(atlas = atlas,
   theme_void() +
   hexSticker::theme_transparent()
 
-lapply(c("png", "svg"), function(x){
-  hexSticker::sticker(p,
-                      package = "ggsegGordon",
-                      filename = sprintf("man/figures/logo.%s", x),
-                      s_y = 1.2,
-                      s_x = 1,
-                      s_width = 1.5,
-                      s_height = 1.5,
-                      p_family = "mono",
-                      p_size = 10,
-                      p_color = "grey30",
-                      p_y = .6,
-                      h_fill = "white",
-                      h_color = "grey30"
+lapply(c("png", "svg"), function(x) {
+  hexSticker::sticker(
+    p,
+    package = "ggsegGordon",
+    filename = sprintf("man/figures/logo.%s", x),
+    s_y = 1.2,
+    s_x = 1,
+    s_width = 1.5,
+    s_height = 1.5,
+    p_family = "mono",
+    p_size = 10,
+    p_color = "grey30",
+    p_y = .6,
+    h_fill = "white",
+    h_color = "grey30"
   )
-  
+
 })
 
 pkgdown::build_favicons(overwrite = TRUE)
