@@ -5,6 +5,7 @@
 #' Contains 2D polygon geometry for [ggseg::geom_brain()].
 #'
 #' @family ggseg_atlases
+#' @family cortical_atlases
 #'
 #' @references Gordon EM, Laumann TO, Adeyemo B, Huckins JF, Kelley WM,
 #'   Petersen SE (2016). Generation and Evaluation of a Cortical Area

@@ -2,3 +2,12 @@
 .Rhistory
 .RData
 .Ruserdata
+
+# Pipeline artefacts  
+data-raw/**/*.dpv
+data-raw/**/*.ply
+data-raw/**/*.rds
+data-raw/**/*.rda
+data-raw/**/*.png
+data-raw/**/*.jpg
+data-raw/**/*.svg
