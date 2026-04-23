@@ -58,6 +58,7 @@ pak::pak("ggsegverse/ggsegGordon")
 ```{r}
 #| label: gordon
 library(ggseg)
+library(ggsegGordon)
 
 plot(gordon())
 ```
