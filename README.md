@@ -42,17 +42,8 @@ pak::pak("ggsegverse/ggsegGordon")
 ``` r
 library(ggseg)
 library(ggsegGordon)
-library(ggplot2)
 
-ggplot() +
-  geom_brain(
-    atlas = gordon(),
-    mapping = aes(fill = label),
-    position = position_brain(hemi ~ view),
-    show.legend = FALSE
-  ) +
-  scale_fill_manual(values = gordon()$palette, na.value = "grey") +
-  theme_void()
+plot(gordon())
 ```
 
 <img src="man/figures/README-gordon-1.png" style="width:100.0%" />
