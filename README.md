@@ -1,44 +1,59 @@
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# ggsegGordon
+<!-- README.md is generated from README.qmd. Please edit that file -->
+
+# ggsegGordon <img src='man/figures/logo.png' align="right" height="138.5" />
 
 <!-- badges: start -->
 
-[![R-CMD-check](https://github.com/ggsegverse/ggsegGordon/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ggsegverse/ggsegGordon/actions/workflows/R-CMD-check.yaml)
-[![r-universe](https://ggsegverse.r-universe.dev/badges/ggsegGordon)](https://ggsegverse.r-universe.dev/ggsegGordon)
+[![R-CMD-check](https://github.com/ggseg/ggsegGordon/workflows/R-CMD-check/badge.svg)](https://github.com/ggseg/ggsegGordon/actions)
+[![DOI](https://zenodo.org/badge/417531585.svg)](https://zenodo.org/badge/latestdoi/417531585)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/ggsegGordon.png)](https://CRAN.R-project.org/package=ggsegGordon)
 <!-- badges: end -->
 
-Gordon Atlas for the ggsegverse Ecosystem.
+This package contains dataset for plotting the Gordon atlas for ggseg.
+
+Gordon, E. M., Laumann, T. O., Adeyemo, B., Huckins, J. F., Kelley, W.
+M., & Petersen, S. E. (2014). Generation and evaluation of a cortical
+area parcellation from resting-state correlations. Cerebral cortex,
+26(1), 288-303. [PubMed](https://pubmed.ncbi.nlm.nih.gov/25316338/)
+
+To learn how to use these atlases, please look at the documentation for
+[ggseg](https://ggseg.github.io/ggseg/)
 
 ## Installation
 
-``` r
-# From r-universe
-install.packages("ggsegGordon", repos = "https://ggsegverse.r-universe.dev")
+We recommend installing the ggseg-atlases through the ggseg
+[r-universe](https://ggseg.r-universe.dev/ui#builds):
 
-# From GitHub
-# install.packages("remotes")
-remotes::install_github("ggsegverse/ggsegGordon")
+``` r
+options(repos = c(
+  ggseg = "https://ggseg.r-universe.dev",
+  CRAN = "https://cloud.r-project.org"
+))
+
+install.packages("ggsegGordon")
 ```
 
-## Atlases
+You can install from [GitHub](https://github.com/) with:
 
-### gordon
+``` r
+# install.packages("remotes")
+remotes::install_github("ggseg/ggsegGordon")
+```
 
-Gordon 333-region cortical parcellation.
+## Example
 
 ``` r
 library(ggsegGordon)
+library(ggseg)
+
 plot(gordon())
 ```
 
-<img src="man/figures/README-gordon-1.png" alt="" width="100%" /> \##
-Data source
+<img src="man/figures/README-2d-plot-1.png" style="width:100.0%" />
 
-Gordon333dil annotation files on fsaverage5.
-
-- **Reference**: Gordon et al. (2016)
-  [doi:10.1093/cercor/bhu239](https://doi.org/10.1093/cercor/bhu239)
-
-- **Date obtained**: 2021-10-15
+Please note that the ‘ggsegGordon’ project is released with a
+[Contributor Code of Conduct](CODE_OF_CONDUCT.md). By contributing to
+this project, you agree to abide by its terms.
